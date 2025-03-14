@@ -1,7 +1,7 @@
 
 def isAnagram(s, t):
-    countS = {}
-    countT = {}
+    countS = dict()
+    countT = dict()
     if len(s) != len(t):
         return False
         
@@ -13,12 +13,6 @@ def isAnagram(s, t):
         if countS.get(s[n], 0) != countT.get(s[n], 0):
             return False
     return True
-    
-      
-    
-
-# s = "racecar"
-# t = "carrace"
 s = "jar"
-t = "jam"
+t = "jra"
 print(isAnagram(s, t))

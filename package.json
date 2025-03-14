@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "tsx": "^4.19.3"
+  }
+,
+  "scripts": {
+    "dev": "tsx watch index.ts"
+  }
+}
