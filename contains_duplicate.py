@@ -56,23 +56,35 @@ Constraints:
 # print(containDuplicate(nums))
 
 # 
-# def containDuplicate(nums):
-#     hash_set = set()
-#     for n in range(len(nums)):
-#         if nums[n] in hash_set:
-#             return True
-#         hash_set.add(nums[n])
-#     return False
-# 
-# nums = [1,3,2,4]
-# print(containDuplicate(nums))
-
 def containDuplicate(nums):
-    hash_set = set(nums)
-    if len(hash_set) < len(nums):
-        return True
+    hash_set = set()
+    for n in range(len(nums)):
+        if nums[n] in hash_set:
+            return True
+        hash_set.add(nums[n])
     return False
 
-nums = [1,3,2,4,4]
+nums = [1,3,2,4]
 print(containDuplicate(nums))
+
+# def containDuplicate(nums):
+#     hash_set = set(nums)
+#     if len(hash_set) < len(nums):
+#         return True
+#     return False
+# 
+# nums = [1,3,2,4,4]
+# print(containDuplicate(nums))
+#         
+# def containDuplicate(nums):
+#     for i in range(len(nums)):
+#         for j in range(i + 1, len(nums)):
+#             if(nums[i] == nums[j]):
+#                 return True
+#     return False
+#         
+#         
+# 
+# nums = [1,3,2,4,4]
+# print(containDuplicate(nums))
         
