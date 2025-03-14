@@ -40,18 +40,39 @@ Constraints:
 1 <= nums.length <= 105
 -109 <= nums[i] <= 109
 """
+# def containDuplicate(nums):
+#     new_array = []
+#     for num in range(len(nums)):
+#         print(num)
+#         if(new_array.__contains__(nums[num])):
+#             print(new_array)
+#             return True
+#         else:
+#             new_array.append(nums[num])
+#             print(new_array)
+#     return False
+# 
+# nums = [1,3,2,4,2]
+# print(containDuplicate(nums))
+
+# 
+# def containDuplicate(nums):
+#     hash_set = set()
+#     for n in range(len(nums)):
+#         if nums[n] in hash_set:
+#             return True
+#         hash_set.add(nums[n])
+#     return False
+# 
+# nums = [1,3,2,4]
+# print(containDuplicate(nums))
+
 def containDuplicate(nums):
-    new_array = []
-    for num in range(len(nums)):
-        print(num)
-        if(new_array.__contains__(nums[num])):
-            print(new_array)
-            return True
-        else:
-            new_array.append(nums[num])
-            print(new_array)
+    hash_set = set(nums)
+    if len(hash_set) < len(nums):
+        return True
     return False
 
-nums = [1,3,2,4,2]
+nums = [1,3,2,4,4]
 print(containDuplicate(nums))
         
