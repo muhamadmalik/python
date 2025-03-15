@@ -33,13 +33,28 @@ function twoSum(arr, target) {
     const num = arr[index];
     const neededValue = target - num;
     if (storage.has(neededValue)) {
-        
       return [storage.get(neededValue), index];
     }
-    storage.set(num, index) 
-    
+    storage.set(num, index);
   }
   return [];
 }
 
-console.log(twoSum([2, 7, 11, 15], 9));
+// console.log(twoSum([2, 7, 11, 15], 9));
+
+function longestCommonPrefix(strs) {
+  let ans = '';
+
+  for (let i = 0; i < strs[0].length; i++) {
+    for (let j = 0 ; j < strs.length; j++) {
+      if (i == strs[j].length || strs[j][i] != strs[0][i]) {
+        return ans;
+      } 
+    }
+    ans += strs[0][i];
+  }
+  return ans;
+}
+
+const strs = ['']; 
+console.log(longestCommonPrefix(strs));
