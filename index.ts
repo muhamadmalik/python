@@ -78,9 +78,9 @@ function groupAnagrams(strs: string[]) {
     for (let c of s) {
       count[c.charCodeAt(0) - 'a'.charCodeAt(0)] += 1;
     }
-    const newArray = res.get(count.toString()) || []
-    newArray?.push(s)
-    res.set(count.toString(), newArray)
+    const newArray = res.get(count.toString()) || [];
+    newArray?.push(s);
+    res.set(count.toString(), newArray);
   }
   return Array.from(res.values());
 }
@@ -89,19 +89,16 @@ const strs = ['act', 'pots', 'tops', 'cat', 'stop', 'hat'];
 
 // console.log(groupAnagrams(strs));
 
-function removeElement(nums: number[], val: number){
-
-  let k = 0
-  for (let i = 0 ; i< nums.length; i++){
-    if(nums[i] != val){
-      nums[k] = nums[i]
-      k += 1
+function removeElement(nums: number[], val: number) {
+  let k = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] != val) {
+      nums[k] = nums[i];
+      k += 1;
     }
   }
-  return k
-
+  return k;
 }
-
 
 // function majorityElement(nums) {
 //   const hash = new Map()
@@ -113,24 +110,47 @@ function removeElement(nums: number[], val: number){
 //     max_num = Math.max(hash.get(i), max_num)
 //   }
 // return res
-// 
+//
 // }
-// 
+//
 
 function majorityElement(nums) {
-  let res = 0
-  let count = 0
+  let res = 0;
+  let count = 0;
 
-  for (let i of nums ){
-    if(count == 0){ 
-      res = i
-
+  for (let i of nums) {
+    if (count == 0) {
+      res = i;
     }
-    count += (res == i ? + 1 : - 1)
+    count += res == i ? +1 : -1;
   }
-  return res
+  return res;
 }
 
+const nums = [6, 5, 5];
+// console.log(majorityElement(nums))
 
-const nums = [6, 5, 5]
-console.log(majorityElement(nums))
+
+class MyHashSet {
+  private data: number[];
+
+  constructor() {
+    this.data = []; 
+  }
+
+  add(key: number){
+    return this.data.includes(key) ? '' : this.data.push(key)
+  }
+
+  remove(key: number){
+    return this.data.splice(this.data.indexOf(key), 1)
+  }
+
+  contains(key: number) {
+    return this.data.includes(key)
+  }
+}
+
+const obj = new MyHashSet();
+obj.add(33)
+console.log(obj.contains(33));
