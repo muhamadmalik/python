@@ -87,4 +87,50 @@ function groupAnagrams(strs: string[]) {
 
 const strs = ['act', 'pots', 'tops', 'cat', 'stop', 'hat'];
 
-console.log(groupAnagrams(strs));
+// console.log(groupAnagrams(strs));
+
+function removeElement(nums: number[], val: number){
+
+  let k = 0
+  for (let i = 0 ; i< nums.length; i++){
+    if(nums[i] != val){
+      nums[k] = nums[i]
+      k += 1
+    }
+  }
+  return k
+
+}
+
+
+// function majorityElement(nums) {
+//   const hash = new Map()
+//   let res = 0
+//   let max_num = 0
+//   for(let i of nums) {
+//     hash.set(i, (hash.get(i) || 0)  + 1)
+//     res = hash.get(i) > max_num ? i : res
+//     max_num = Math.max(hash.get(i), max_num)
+//   }
+// return res
+// 
+// }
+// 
+
+function majorityElement(nums) {
+  let res = 0
+  let count = 0
+
+  for (let i of nums ){
+    if(count == 0){ 
+      res = i
+
+    }
+    count += (res == i ? + 1 : - 1)
+  }
+  return res
+}
+
+
+const nums = [6, 5, 5]
+console.log(majorityElement(nums))
