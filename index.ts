@@ -130,27 +130,73 @@ function majorityElement(nums) {
 const nums = [6, 5, 5];
 // console.log(majorityElement(nums))
 
-
 class MyHashSet {
   private data: number[];
 
   constructor() {
-    this.data = []; 
+    this.data = [];
   }
 
-  add(key: number){
-    return this.data.includes(key) ? '' : this.data.push(key)
+  add(key: number) {
+    return this.data.includes(key) ? '' : this.data.push(key);
   }
 
-  remove(key: number){
-    return this.data.splice(this.data.indexOf(key), 1)
+  remove(key: number) {
+    return this.data.splice(this.data.indexOf(key), 1);
   }
 
   contains(key: number) {
-    return this.data.includes(key)
+    return this.data.includes(key);
   }
 }
 
 const obj = new MyHashSet();
-obj.add(33)
-console.log(obj.contains(33));
+obj.add(33);
+
+function sortArray(nums) {
+  mergeSort(nums, 0, nums.length);
+  return nums;
+}
+
+function mergeSort(arr, l, r) {
+  if (l == r) return;
+  let m = Math.floor((l + r) / 2);
+  mergeSort(arr, l, m);
+  mergeSort(arr, m + 1, r);
+  merge(arr, l, m, r);
+  return arr;
+}
+function merge(arr, l, m, r) {
+  let i = l;
+  let j = 0;
+  let k = 0;
+  const left = arr.slice(l, m + 1);
+  const right = arr.slice(m + 1, r + 1);
+  while (j < left.length && k < right.length) {
+    if (left[j] < right[k]) {
+      arr[i] = left[j];
+      j += 1;
+      i += 1;
+    } else {
+      arr[i] = right[k];
+      k += 1;
+      i += 1;
+    }
+  }
+  while (j < left.length) {
+    arr[i] = left[j];
+    j += 1;
+    i += 1;
+  }
+  while (k < right.length) {
+    arr[i] = right[k];
+    k += 1;
+    i += 1;
+  }
+}
+
+const arr = [23, 432, 238, 2];  
+console.log(mergeSort(arr, 0, arr.length));
+
+
+

@@ -12,7 +12,6 @@ def mergeSort(arr, l, r):
 def merge(arr, L, M, R):
     left = arr[L:M+1]
     right = arr[M+1:R+1]
-    
     i = L
     j = 0
     k = 0
@@ -36,5 +35,6 @@ def merge(arr, L, M, R):
 
 
 
-nums = [2, 1, 3, 23, 434, 23909, 232]
+nums = [5, 4, 3, 2, 1]
+print(nums[1: 3])
 print(mergeSort(nums, 0, len(nums)))
