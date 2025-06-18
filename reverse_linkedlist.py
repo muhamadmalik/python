@@ -29,16 +29,14 @@ def linked_list_to_list(head: Optional[ListNode]) -> List[int]:
     return vals
 
 def reverseList(head: Optional[ListNode]) -> Optional[ListNode]:
-    if not head: 
-        return None
+    if not head:
+        return head
     newHead = head
     if head.next:
         newHead = reverseList(head.next)
         head.next.next = head
-        pass
     head.next = None
     return newHead
-
 
 head1 = create_linked_list([1, 2, 3, 4])
 print(f"Original: {head1}")

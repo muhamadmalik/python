@@ -1,14 +1,16 @@
 def isValid(s: str) -> bool:
+    
     stack = []
-    CloseToOpen = {')': '(', ']': '[', '}': '{'}
-    for c in s:
-        if c in CloseToOpen:
-            if stack and stack[-1] == CloseToOpen[c]:
+    closeToOpen = {")": "(", "}": "{", "]": "[", }
+    for c in s: 
+        if c in closeToOpen:
+            if stack and stack[-1] == closeToOpen[c]:
                 stack.pop()
+            else:
+                False
         else:
             stack.append(c)
-        
     return True if not stack else False
-s = "([{}])["
+s = "([{}]"
 result = isValid(s)
 print(result)
