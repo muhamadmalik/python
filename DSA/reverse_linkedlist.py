@@ -28,15 +28,30 @@ def linked_list_to_list(head: Optional[ListNode]) -> List[int]:
     while curr: vals.append(curr.val); curr = curr.next
     return vals
 
+# def reverseList(head: Optional[ListNode]) -> Optional[ListNode]:
+#     prev  = None 
+#     cur = head
+#     
+#     while cur:
+#         nxt = cur.next 
+#         cur.next = prev 
+#         prev = cur 
+#         cur = nxt 
+#     return prev 
+
+
 def reverseList(head: Optional[ListNode]) -> Optional[ListNode]:
+    
     if not head:
-        return head
+        return None
+    
     newHead = head
     if head.next:
         newHead = reverseList(head.next)
         head.next.next = head
     head.next = None
-    return newHead
+    return newHead    
+    
 
 head1 = create_linked_list([1, 2, 3, 4])
 print(f"Original: {head1}")
