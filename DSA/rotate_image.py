@@ -1,27 +1,17 @@
 from typing import List
 
-# class Solution:
-#     def rotate(self, matrix: List[List[int]]) -> None:
-#         
-#         left = 0
-#         right = len(matrix) - 1
-#         
-#         while left < right:
-#             top = left 
-#             bottom = right 
-#             
-#             for i in range(right - left):
-#                 top_left = matrix[top][left + i]
-#                 
-#                 matrix[top][left + i]  = matrix[bottom - i][left]
-#                 matrix[bottom - i][left] = matrix[bottom][right - i]
-#                 matrix[bottom][right - i] = matrix[top + i][right]
-#                 matrix[top + i][right] = top_left
-#             left += 1
-#             right -= i
-        
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
+        
+        left = 0
+        right = len(matrix) - 1
+        
+        while left < right:
+            top = left 
+            bottom = right 
+            
+            for i in range(right - left):
+                top_left = matrix[top][left + i]
                 
                 matrix[top][left + i]  = matrix[bottom - i][left]
                 matrix[bottom - i][left] = matrix[bottom][right - i]
@@ -30,6 +20,15 @@ class Solution:
             left += 1
             right -= i
         
+# class Solution:
+#     def rotate(self, matrix: List[List[int]]) -> None:
+#         matrix.reverse()
+#         
+#         
+#         for i in range(len(matrix)):
+#             for j in range(i + 1, len(matrix)):
+#                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+#         
 
 # Example of how to use it:
 sol = Solution()
